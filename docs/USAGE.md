@@ -33,5 +33,5 @@ $ doc run -itd --env-file ./vars.env 80d
 
 #### Start django app
 `
-$ docker-compose run app sh -c "django-admin.py startapp <app name> ."
+$ docker-compose run app sh -c "python manage.py startapp <app name> ."
 `
