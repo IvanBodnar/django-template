@@ -13,5 +13,5 @@ RUN mkdir /app
 WORKDIR /app
 COPY ./app /app
 
-RUN adduser --no-create-home user
-USER user
+RUN adduser --no-create-home app
+USER app
