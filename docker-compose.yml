@@ -4,18 +4,29 @@ services:
   app:
     build:
       context: .
+    container_name: web
     ports:
       - "8000:8000"
     volumes:
       - ./app:/app
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
+#    command: sh -c "gunicorn project_core.wsgi:application -w 4 -b 0.0.0.0:8000 --reload"
     env_file:
       - ./vars.env
     depends_on:
       - db
+    networks:
+      - network-name
 
   db:
     image: postgres:11
+    container_name: db
     env_file:
       - ./vars.env
+    networks:
+      - network-name
+
+networks:
+  network-name:
+    driver: bridge
