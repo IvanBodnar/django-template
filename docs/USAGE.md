@@ -46,6 +46,10 @@ POSTGRES_DB=app
 POSTGRES_USER=user
 POSTGRES_PASSWORD=pass
 ```
+- Run migrate
+```bash
+dc run app sh -c "python manage.py migrate"
+```
 A database and user with the specified password will be created on the postgres container.
 - Run docker-compose up  
 `
